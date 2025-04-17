@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/golld-silver/static/css/main.8e2b4721.css",
+    "main.js": "/golld-silver/static/js/main.c512998f.js",
+    "static/js/239.d420093f.chunk.js": "/golld-silver/static/js/239.d420093f.chunk.js",
+    "static/js/213.c16057f1.chunk.js": "/golld-silver/static/js/213.c16057f1.chunk.js",
+    "static/js/732.119e32b5.chunk.js": "/golld-silver/static/js/732.119e32b5.chunk.js",
+    "static/js/453.4aed6bf5.chunk.js": "/golld-silver/static/js/453.4aed6bf5.chunk.js",
+    "index.html": "/golld-silver/index.html",
+    "main.8e2b4721.css.map": "/golld-silver/static/css/main.8e2b4721.css.map",
+    "main.c512998f.js.map": "/golld-silver/static/js/main.c512998f.js.map",
+    "239.d420093f.chunk.js.map": "/golld-silver/static/js/239.d420093f.chunk.js.map",
+    "213.c16057f1.chunk.js.map": "/golld-silver/static/js/213.c16057f1.chunk.js.map",
+    "732.119e32b5.chunk.js.map": "/golld-silver/static/js/732.119e32b5.chunk.js.map",
+    "453.4aed6bf5.chunk.js.map": "/golld-silver/static/js/453.4aed6bf5.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8e2b4721.css",
+    "static/js/main.c512998f.js"
+  ]
+}
