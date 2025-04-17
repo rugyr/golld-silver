@@ -1,0 +1,460 @@
+/* ========================================================================== 
+   Global Reset 
+   ========================================================================== */
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Arial', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* ========================================================================== 
+     Base Styling 
+     ========================================================================== */
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    background-color: #f4f4f4; /* Changed to neutral light gray */
+    color: #333333; /* Darker for contrast */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 60px 24px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+  
+  /* ========================================================================== 
+     Typography 
+     ========================================================================== */
+  h1, h2, h3, h4, h5, h6 {
+    color: #222222; /* Darker gray for headings */
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  
+  h1 {
+    font-size: 3.5rem;
+    margin-bottom: 40px;
+    text-align: center;
+    letter-spacing: -0.02em;
+  }
+  
+  h2 {
+    font-size: 2.25rem;
+    margin-bottom: 24px;
+  }
+  
+  h3 {
+    font-size: 1.75rem;
+    margin-bottom: 16px;
+  }
+  
+  p {
+    font-size: 1rem;
+    color: #4b5563; /* Muted gray for body text */
+  }
+  
+  /* ========================================================================== 
+     Main App Container 
+     ========================================================================== */
+  .App {
+    width: 100%;
+    max-width: 1280px;
+    background-color: #ffffff;
+    padding: 48px;
+    border-radius: 16px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1); /* Subtler shadow */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+  
+  .App:hover {
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.15); /* Neutral shadow */
+    transform: translateY(-4px);
+  }
+  
+  .App:focus-within {
+    box-shadow: 0 0 0 4px rgba(75, 85, 99, 0.2); /* Gray focus ring */
+  }
+  
+  /* ========================================================================== 
+     Quick Stats Section 
+     ========================================================================== */
+  .quick-stats {
+    background-color: #ececec; /* Soft gray background */
+    padding: 32px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    margin-bottom: 40px;
+  }
+  
+  .quick-stats h3 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: #222222; /* Darker heading */
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  
+  .quick-stats ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 24px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+  
+  .quick-stats li {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    font-size: 1.125rem;
+    color: #4b5563; /* Muted gray text */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .quick-stats li:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+  }
+  
+  .quick-stats li strong {
+    color: #555555; /* Dark gray for emphasis */
+    font-weight: 700;
+  }
+  
+  .quick-stats .total-amount {
+    font-size: 1.5rem;
+    color: #555555; /* Dark gray */
+    font-weight: 600;
+  }
+  
+  .quick-stats .total-weight {
+    font-size: 1.5rem;
+    color: #666666; /* Mid gray */
+    font-weight: 600;
+  }
+  
+  .quick-stats .total-transactions {
+    font-size: 1.5rem;
+    color: #777777; /* Lighter gray */
+    font-weight: 600;
+  }
+  
+  .quick-stats .stat-label {
+    font-size: 1.125rem;
+    color: #6b7280; /* Muted gray label */
+    margin-bottom: 8px;
+  }
+  
+  /* ========================================================================== 
+     Form Container 
+     ========================================================================== */
+  .form {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 48px;
+  }
+  
+  .form select,
+  .form input {
+    padding: 14px 18px;
+    font-size: 1rem;
+    border-radius: 10px;
+    border: 1px solid #d1d5db; /* Light gray border */
+    background-color: #f9fafb; /* Very light gray */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .form select:focus,
+  .form input:focus {
+    border-color: #4b5563; /* Dark gray focus */
+    outline: none;
+    box-shadow: 0 0 8px rgba(75, 85, 99, 0.3);
+  }
+  
+  .form button {
+    padding: 14px 28px;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: #4b5563; /* Dark slate gray */
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .form button:hover {
+    background-color: #374151; /* Darker gray hover */
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(75, 85, 99, 0.3);
+  }
+  
+  .form button:focus {
+    outline: none;
+    box-shadow: 0 0 8px rgba(75, 85, 99, 0.5);
+  }
+  
+  .form button:disabled {
+    background-color: #9ca3af; /* Muted gray for disabled */
+    cursor: not-allowed;
+    transform: none;
+  }
+  
+  /* ========================================================================== 
+     Table Container 
+     ========================================================================== */
+  .table-container {
+    width: 100%;
+    margin-top: 48px;
+    overflow-x: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  
+  th, td {
+    padding: 18px 20px;
+    text-align: left;
+    font-size: 0.875rem;
+    border-bottom: 1px solid #e5e7eb; /* Light gray border */
+  }
+  
+  th {
+    background-color: #374151; /* Dark gray header */
+    color: #ffffff;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  td {
+    color: #4b5563; /* Muted gray text */
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f9fafb; /* Very light gray */
+  }
+  
+  tr:hover {
+    background-color: #e5e7eb; /* Light gray hover */
+  }
+  
+  /* Action Buttons in Table */
+  table button {
+    background-color: #4b5563; /* Dark gray */
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    margin-right: 12px;
+  }
+  
+  table button:hover {
+    background-color: #2d3748; /* Darker gray hover */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(75, 85, 99, 0.3);
+  }
+  
+  table button:focus {
+    outline: none;
+    box-shadow: 0 0 8px rgba(75, 85, 99, 0.5);
+  }
+  
+  /* ========================================================================== 
+     Dashboard Summary 
+     ========================================================================== */
+  .dashboard {
+    margin: 40px auto;
+    max-width: 1080px;
+    width: 100%;
+  }
+  
+  .dashboard h2 {
+    margin-bottom: 32px;
+    text-align: center;
+    font-size: 2.5rem;
+  }
+  
+  .summary-boxes {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    justify-content: center;
+  }
+  
+  .summary-card {
+    background: #ffffff;
+    border: 1px solid #d1d5db; /* Light gray border */
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+  
+  .summary-card:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    transform: translateY(-4px);
+  }
+  
+  .summary-card h3 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: #222222; /* Darker heading */
+  }
+  
+  .summary-card p {
+    font-size: 1rem;
+    color: #4b5563; /* Muted gray */
+    margin-bottom: 12px;
+  }
+  
+  .summary-card strong {
+    font-weight: 700;
+    color: #4b5563; /* Dark gray for emphasis */
+    font-size: 1.25rem;
+  }
+  
+  /* ========================================================================== 
+     Filter Transactions 
+     ========================================================================== */
+  .filters {
+    margin: 48px 0;
+    background-color: #ececec; /* Soft gray */
+    padding: 32px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+  
+  .filters:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    transform: translateY(-4px);
+  }
+  
+  .filters h3 {
+    margin-bottom: 24px;
+    text-align: center;
+    font-size: 1.75rem;
+  }
+  
+  .filters input {
+    padding: 14px 18px;
+    font-size: 1rem;
+    border-radius: 10px;
+    border: 1px solid #d1d5db; /* Light gray */
+    background-color: #ffffff;
+    margin-bottom: 16px;
+    width: 100%;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .filters input:focus {
+    border-color: #4b5563; /* Dark gray focus */
+    outline: none;
+    box-shadow: 0 0 8px rgba(75, 85, 99, 0.3);
+  }
+  
+  /* ========================================================================== 
+     Footer Styling 
+     ========================================================================== */
+  footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.875rem;
+    background-color: #374151; /* Dark gray */
+    color: #ffffff;
+    border-radius: 12px;
+    margin-top: 48px;
+    font-weight: 500;
+  }
+  
+  /* ========================================================================== 
+     Accessibility Enhancements 
+     ========================================================================== */
+  :focus {
+    outline: 3px solid #4b5563; /* Dark gray outline */
+    outline-offset: 2px;
+  }
+  
+  /* ========================================================================== 
+     Print Styling 
+     ========================================================================== */
+  @media print {
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      color: #000000;
+    }
+  
+    .App {
+      box-shadow: none;
+      padding: 0;
+      width: 100%;
+    }
+  
+    .form,
+    .overall-totals,
+    .filters {
+      margin: 0;
+      padding: 0;
+      box-shadow: none;
+      display: none;
+    }
+  
+    table {
+      width: 100%;
+      border: 1px solid #000000;
+    }
+  
+    th,
+    td {
+      padding: 10px;
+      font-size: 12px;
+      border: 1px solid #000000;
+    }
+  
+    .form button,
+    .form select,
+    .form input,
+    table button {
+      display: none;
+    }
+  
+    .quick-stats,
+    footer {
+      display: none;
+    }
+  }
+  
